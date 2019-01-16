@@ -7,9 +7,10 @@
  
  ## Requirements
  - Node.js [Download here](https://nodejs.org)
+ - Discord.js (Node.js module) (> npm install discord.js)
  
  ## Run
- Right click in the directory where the bot.js is and run 'node bot.js'
+ Right click in the directory where the bot.js is and click "Open command window here" and type 'node bot.js'
 
 ## Commands and documentation
   The bot's commands are written in it's (prefix)help command.
