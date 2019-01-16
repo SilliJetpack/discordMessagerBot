@@ -2,5 +2,6 @@
  "prefix": "A cool prefix to use",
   "token" : "Your token here",
   "game": "A game to play",
-  "description": "Something you should describe here"
+  "description": "Something you should describe here",
+ "domain": "skymail.cord"
 }
