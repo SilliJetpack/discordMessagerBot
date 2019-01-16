@@ -5,7 +5,10 @@ const settings = require("./settings.json")
 const prefix = settings.prefix
 const token = settings.token 
 const gamename = settings.game
-bot.on('ready', ready => {
+var owner;
+bot.on('ready', async() => {
+    var appowner = await bot.fetchApplication()
+    owner = appowner.owner.tag
 console.log("Ready " + bot.user.username)
 console.log(bot.guilds.size)
 fs.readdir('./tot/', function(err, items) {
@@ -105,6 +108,7 @@ const info = new Discord.RichEmbed()
 .addField("ℹ️ Description", settings.description)
 .addField("🏭 My server count", bot.guilds.size)
 .addField("🖕🏻 My uptime", uptime)
+.addField("🖕🏻 I am owner by", owner)
 .addField("Number of email accounts", items2.length)
 .addField("Total amount of emails sent", items1.length)
 .setColor("#0000FF")
