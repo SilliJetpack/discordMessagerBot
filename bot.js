@@ -1,10 +1,4 @@
 const Discord = require("discord.js")
-const express = require("express")
-const app = express()
-app.get("/", (req, res) => {
-  res.send("hi")
-});
-app.listen(8000)
 const fs = require("fs")
 const bot = new Discord.Client()
 const settings = require("./settings.json")
