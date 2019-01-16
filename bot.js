@@ -116,7 +116,7 @@ if(message.content.startsWith(prefix + "cemail")) {
 let what = args.join('')
 if(what.length <1) return message.channel.send("❌ Provide an email name ❌ ")
 if(what.length > 16) return message.channel.send("❌ Emails can only be a maximum of 16 characters ❌ ")
-var nofuck = `./Emails/mails/` +  what + "@" + "skymail" + ".cord";
+var nofuck = `./Emails/mails/` +  what + "@" + settings.domain;
 
 if (fs.existsSync(nofuck)) return message.channel.send("❌ An user with this email already exists ❌ ")
 var dir = `./Emails/${message.author.id}`;
@@ -133,18 +133,18 @@ fs.mkdirSync(dir2);
 fs.readFile(`./Emails/${message.author.id}/email.txt`,'utf8', function(err, data) {
 if(data === message.author.id) return message.channel.send("❌ You already have an email account! ❌ ")
 if(err) {
-    var dir3 = `./Emails/mails/` +  what + "@" + "skymail" + ".cord";
+    var dir3 = `./Emails/mails/` +  what + "@" + settings.domain;
     
     if (!fs.existsSync(dir3)){
     fs.mkdirSync(dir3);
     }
-fs.writeFile(`./Emails/mails/` + what + "@" + "skymail" + ".cord" + "/" + what + "@" + "skymail" + ".cord" + ".txt", `${message.author.id}` ,  function (err) {
-message.channel.send("✔️ Success, your email is: " + "'" + what + "@" + "skymail" + ".cord" + "' ✔️" )
+fs.writeFile(`./Emails/mails/` + what + "@" + settings.domain + "/" + what + "@" + settings.domain + ".txt", `${message.author.id}` ,  function (err) {
+message.channel.send("✔️ Success, your email is: " + "'" + what + "@" + settings.domain + "' ✔️" )
 });
 fs.writeFile(`./Emails/${message.author.id}/email.txt`, `${message.author.id}` ,  function (err) {
 if(err) return undefined
 });
-fs.writeFile(`./Emails/${message.author.id}/mail.txt`, what + "@" + "skymail" + ".cord" ,  function (err) {
+fs.writeFile(`./Emails/${message.author.id}/mail.txt`, what + "@" + settings.domain ,  function (err) {
 if(err) return undefined
 });
 } 
